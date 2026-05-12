@@ -1,5 +1,5 @@
 {
-  "name": "g2ray",
+  "name": "cold-core-f07806",
   "build": {
     "dockerfile": "Dockerfile",
     "context": "."
@@ -12,18 +12,17 @@
       "version": "latest"
     }
   },
-  "postAttachCommand": {
-    "expose": "gh codespace ports visibility 443:public -c $CODESPACE_NAME",
-    "start": "sudo /usr/local/bin/xray run -c /etc/xray/g2ray.json"
-  },
+  "postAttachCommand": "gh codespace ports visibility 443:public -c $CODESPACE_NAME && bash /usr/local/bin/start.sh",
   "portsAttributes": {
     "443": {
-      "label": "g2ray",
+      "label": "cold-core-f07806",
       "protocol": "http",
       "onAutoForward": "silent"
     }
   },
-  "forwardPorts": [443],
+  "forwardPorts": [
+    443
+  ],
   "hostRequirements": {
     "cpus": 2
   }
